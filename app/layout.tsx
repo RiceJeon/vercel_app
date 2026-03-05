@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import Script from "next/script"
 import "./globals.css"
 
 const _geist = Geist({ subsets: ["latin"] })
@@ -38,6 +39,12 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={`font-sans antialiased`}>
+        {/* Onetag TCS 스크립트 삽입 */}
+        <Script 
+          src="https://cdn.onetag.co.kr/0/tcs.js?eid=r1a0o4fl4egmr1a0o4fl4e" 
+          strategy="afterInteractive" 
+        />
+        
         {children}
         <Analytics />
       </body>
